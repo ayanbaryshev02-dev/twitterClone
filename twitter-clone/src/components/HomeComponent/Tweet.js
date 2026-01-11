@@ -8,7 +8,9 @@ const Tweet = (tweet) => {
                 <img src={KZ_IMG_PATH} style={{width: 50, height:50, borderRadius: 50}}/>
             <div className="mx-3">
                 <p style={{fontWeight: 600}}>{tweet.authorName} <span style={{color: "gray"}}>{tweet.authorUserName}</span></p>
-                <p>{tweet.content}</p>  
+                <p>{tweet.content.length > 200 
+                ? tweet.content.slice(0, 200) + '...'
+                :tweet.content}</p>  
             </div>
             </div>
 
