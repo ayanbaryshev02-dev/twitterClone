@@ -1,6 +1,8 @@
 const SideMenu = () => {
     return(
-        <p>Side menu</p>
+        <div className="w-25">
+            <p>Side menu</p>
+        </div>
     )
 }
 export default SideMenu
