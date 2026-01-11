@@ -1,5 +1,6 @@
 import './styles.css'
 import {HOME_SVG, EXPLORE_SVG, NOTIFICATIONS_SVG, MESSAGES_SVG, BOOKMARKS_SVG} from './images'
+import MenuItem from './MenuItem'
 
 const SideMenu = () => {
 
@@ -31,17 +32,9 @@ const SideMenu = () => {
             <img src={require('./images/twitter.png')} className='logo-icon' />
 
             
-        <div className='d-flex'>
-            {menu.map((item, index)=>(
-                <div>
-                <div style={{width: 30, height: 30}}>
-                {item.icon}
-                </div>
-                <p className='mx-3' style={{fontSize: 18}}>{item.name}</p>
-                </div>
-            ))}
+        
+            {menu.map((item, index)=>(<MenuItem item={item} key={index} />))}
             
-        </div>
         </div>
         
     )
