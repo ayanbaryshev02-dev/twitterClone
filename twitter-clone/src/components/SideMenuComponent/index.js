@@ -29,7 +29,7 @@ const SideMenu = () => {
 
     return(
         <div className="w-25 mt-3 mx-5">
-            <img src={require('./images/twitter.png')} className='logo-icon' />
+            <img src={require('./images/twitter.png')} className='logo-icon mb-2' />
 
             
         
