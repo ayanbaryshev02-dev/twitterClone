@@ -59,6 +59,13 @@ class Home extends React.Component {
         })
     }
 
+    deleteTweet = (id) => {
+        this.setState({
+            tweets: this.state.tweets.filter(item=>item.id!==id)
+        })
+        
+    }
+
     render(){
 
         const { tweets, content } = this.state;
@@ -67,7 +74,7 @@ class Home extends React.Component {
             <div className="w-50 nt-3">         
             <h5 className="mx-3">Home</h5>
             <NewTweet content={content} onChangeTextInput={this.onChangeTextInput} onTweet={this.addToTweets}/>
-            <TweetsList tweets = {tweets}/>
+            <TweetsList tweets = {tweets} deleteTweet={this.deleteTweet}/>
          </div>
         )
 }

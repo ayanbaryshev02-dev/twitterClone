@@ -1,17 +1,21 @@
-import { COMMENTS, KZ_IMG_PATH, LIKES, RETWEETS, SHARE } from "./images"
+import { COMMENTS, KZ_IMG_PATH, LIKES, RETWEETS, SHARE, DELETE } from "./images"
 
-const Tweet = (tweet) => {
+const Tweet = ({tweet, deleteTweet}) => {
     return(
-        <div className="mt-3 px-1" style={{borderBottom: '2px solid whitesmoke'}}>
+        <div className="mt-3 px-3" style={{borderBottom: '2px solid whitesmoke'}}>
             <p className="mx-5" style={{fontSize:13, fontWeight:"600"}}>You might like! <span style={{color: "blue"}}>See more</span></p>
+
+            <div className="d-flex justify-content-between">
             <div className="d-flex">
-                <img src={tweet.img} style={{width: 50, height:50, borderRadius: 100}}/>
+                <img src={tweet.img} style={{width: 50, height:50, borderRadius: 50}}/>
             <div className="mx-3">
                 <p style={{fontWeight: 600}}>{tweet.authorName} <span style={{color: "gray"}}>{tweet.authorUserName}</span></p>
-                <p>{tweet.content.length > 200 
-                ? tweet.content.slice(0, 200) + '...'
-                :tweet.content}</p>  
+                <p>{tweet.content.length > 200 ? tweet.content.slice(0, 200) + '...' : tweet.content}</p>  
             </div>
+            </div>
+            <button onClick={()=>deleteTweet(tweet.id)} style={{width: 30, height: 30, border:'none', backgroundColor: 'transparent'}}>
+                {DELETE}
+            </button>
             </div>
 
             <div className="d-flex mx-auto justify-content-between" style={{width: '80%'}}>

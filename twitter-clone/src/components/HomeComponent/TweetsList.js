@@ -1,11 +1,11 @@
 
 import Tweet from "./Tweet"
 
-const TweetsList = ({ tweets }) => {
+const TweetsList = ({ tweets, deleteTweet }) => {
     
     return(
         tweets.map((tweet)=>
-        <Tweet {...tweet} key={tweet.id}/>)
+        <Tweet tweet={tweet} key={tweet.id} deleteTweet={deleteTweet}/>)
     )
 }
 export default TweetsList
