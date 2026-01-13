@@ -11,6 +11,7 @@ class Home extends React.Component {
             content: '',
             tweets: [
         {
+            id: 0,
             authorName: 'Free KZ today',
             authorUserName: '@kz',
             img: KZ_IMG_PATH,
@@ -20,6 +21,7 @@ class Home extends React.Component {
             likes: 500,
         },
         {
+            id: 1,
             authorName: 'NFactorial',
             authorUserName: '@nfactorial',
             img: NFACTORIAL_IMG_PATH,
@@ -41,6 +43,7 @@ class Home extends React.Component {
 
     addToTweets = () => {
         const newTweet ={
+            id: this.state.tweets.length,
             authorName: 'Ayan',
             authorUserName: '@ayanbaryshev',
             img: PROFILE_IMG_PATH,
@@ -51,7 +54,8 @@ class Home extends React.Component {
         }   
     
         this.setState({
-            tweets: [...this.state.tweets, newTweet]
+            tweets: [...this.state.tweets, newTweet],
+            content: ''
         })
     }
 

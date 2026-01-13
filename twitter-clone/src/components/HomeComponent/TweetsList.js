@@ -4,8 +4,8 @@ import Tweet from "./Tweet"
 const TweetsList = ({ tweets }) => {
     
     return(
-        tweets.map((tweet, index)=>
-        <Tweet {...tweet} key={index}/>)
+        tweets.map((tweet)=>
+        <Tweet {...tweet} key={tweet.id}/>)
     )
 }
 export default TweetsList
