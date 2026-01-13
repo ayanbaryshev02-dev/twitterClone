@@ -1,7 +1,7 @@
 import NewTweet from "./NewTweet"
 import TweetsList from "./TweetsList"
 import React from "react"
-import { KZ_IMG_PATH, NFACTORIAL_IMG_PATH } from "./images"
+import { KZ_IMG_PATH, NFACTORIAL_IMG_PATH, PROFILE_IMG_PATH } from "./images"
 
 class Home extends React.Component {
     constructor(){
@@ -39,6 +39,22 @@ class Home extends React.Component {
         })
     }
 
+    addToTweets = () => {
+        const newTweet ={
+            authorName: 'Ayan',
+            authorUserName: '@ayanbaryshev',
+            img: PROFILE_IMG_PATH,
+            content: this.state.content,
+            replies: 0,
+            retweets: 0,
+            likes: 0,
+        }   
+    
+        this.setState({
+            tweets: [...this.state.tweets, newTweet]
+        })
+    }
+
     render(){
 
         const { tweets, content } = this.state;
@@ -46,7 +62,7 @@ class Home extends React.Component {
           return(
             <div className="w-50 nt-3">         
             <h5 className="mx-3">Home</h5>
-            <NewTweet content={content} onChangeTextInput={this.onChangeTextInput}/>
+            <NewTweet content={content} onChangeTextInput={this.onChangeTextInput} onTweet={this.addToTweets}/>
             <TweetsList tweets = {tweets}/>
          </div>
         )
