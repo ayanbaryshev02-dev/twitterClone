@@ -8,6 +8,7 @@ class Home extends React.Component {
         super();
 
         this.state = {
+            content: '',
             tweets: [
         {
             authorName: 'Free KZ today',
@@ -31,14 +32,21 @@ class Home extends React.Component {
         }
 
     }
+
+    onChangeTextInput = (e) => {
+        this.setState({
+            content: e.target.value
+        })
+    }
+
     render(){
 
-        const { tweets } = this.state;
+        const { tweets, content } = this.state;
 
           return(
             <div className="w-50 nt-3">         
             <h5 className="mx-3">Home</h5>
-            <NewTweet />
+            <NewTweet content={content} onChangeTextInput={this.onChangeTextInput}/>
             <TweetsList tweets = {tweets}/>
          </div>
         )
