@@ -4,8 +4,8 @@ import React from "react"
 import { KZ_IMG_PATH, NFACTORIAL_IMG_PATH, PROFILE_IMG_PATH } from "./images"
 
 class Home extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             content: '',
@@ -15,7 +15,7 @@ class Home extends React.Component {
             authorName: 'Free KZ today',
             authorUserName: '@kz',
             img: KZ_IMG_PATH,
-            content: "LOREFPOK: :FKfkfgj fkjgr",
+            content: "АЛГА КАЗАКСТАН",
             replies: 200,
             retweets: 1000,
             likes: 500,
@@ -69,12 +69,19 @@ class Home extends React.Component {
     render(){
 
         const { tweets, content } = this.state;
+        const {searchTerm} = this.props
+
+        const filteredTweets = tweets.filter(tweet =>
+            tweet.content.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+            tweet.authorName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+            tweet.authorUserName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+        )
 
           return(
             <div className="w-50 nt-3">         
             <h5 className="mx-3">Home</h5>
             <NewTweet content={content} onChangeTextInput={this.onChangeTextInput} onTweet={this.addToTweets}/>
-            <TweetsList tweets = {tweets} deleteTweet={this.deleteTweet}/>
+            <TweetsList tweets = {filteredTweets} deleteTweet={this.deleteTweet} />
          </div>
         )
 }
